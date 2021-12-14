@@ -48,8 +48,32 @@ namespace Final
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            UsernameField.Text = SQLiteDataAccess.LogIn();
-            PasswordField.Text = SQLiteDataAccess.LogIn();
+            List<User> Logins = SQLiteDataAccess.LogIn();
+            foreach (var account in Logins)
+            {
+                if (account.Username == UsernameField.Text)
+                {
+                    if (account.Password == PasswordField.Text)
+                    {
+                        MessageBox.Show("Login Successful");
+                        break;
+                    }
+                    else if (Logins.IndexOf(account) == Logins.Count - 1)
+                    {
+                        MessageBox.Show("Login Failed");
+                    }
+                }
+                else if (Logins.IndexOf(account) == Logins.Count - 1)
+                {
+
+                    MessageBox.Show("Login Failed");
+
+                }
+
+            }
+
+            //UsernameField.Text = SQLiteDataAccess.LogIn();
+            //PasswordField.Text = SQLiteDataAccess.LogIn();
 
         }
 

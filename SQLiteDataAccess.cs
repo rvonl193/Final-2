@@ -30,14 +30,14 @@ namespace Final
 
         }
 
-        public static string LogIn()
+        public static List<User> LogIn()
         {
 
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
 
                 var output = cnn.Query<User>("select * from Users", new DynamicParameters());
-                return output.ToString();
+                return output.ToList();
 
             }
 
