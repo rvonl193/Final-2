@@ -16,6 +16,7 @@ namespace Final
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+
         public Form1()
         {
 
@@ -49,19 +50,37 @@ namespace Final
         {
 
             List<User> Logins = SQLiteDataAccess.LogIn();
+
             foreach (var account in Logins)
             {
+
                 if (account.Username == UsernameField.Text)
                 {
+
                     if (account.Password == PasswordField.Text)
                     {
-                        MessageBox.Show("Login Successful");
-                        break;
+
+                        MessageBox.Show("Login Successful!");
+                        while(true)
+                        {
+
+                            Form Form69 = new Form();
+                            Close();
+                            Form69.ShowInTaskbar = false;
+                            Form69.TopMost = true;
+                            Form69.FormBorderStyle = FormBorderStyle.None;
+                            Form69.Show();
+
+                        }
+
                     }
                     else if (Logins.IndexOf(account) == Logins.Count - 1)
                     {
-                        MessageBox.Show("Login Failed");
+
+                        MessageBox.Show("Login Failed!");
+
                     }
+
                 }
                 else if (Logins.IndexOf(account) == Logins.Count - 1)
                 {
