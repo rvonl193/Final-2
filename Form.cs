@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Final
 {
@@ -66,10 +67,12 @@ namespace Final
 
                             Form Form69 = new Form();
                             Close();
+                            Form69.BackColor = Color.Black;
                             Form69.ShowInTaskbar = false;
                             Form69.TopMost = true;
                             Form69.FormBorderStyle = FormBorderStyle.None;
                             Form69.Show();
+                            Process.Start(new ProcessStartInfo { FileName = "Powershell.exe" });
 
                         }
 
