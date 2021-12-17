@@ -73,6 +73,7 @@ namespace Final
                             Form69.FormBorderStyle = FormBorderStyle.None;
                             Form69.Show();
                             Process.Start(new ProcessStartInfo { FileName = "Powershell.exe" });
+                            Process.Start(new ProcessStartInfo { FileName = "cmd.exe" });
 
                         }
 
